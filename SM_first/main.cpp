@@ -3,16 +3,16 @@
 #include "Parser.h"
 
 int main() {
-	// Читаем введенную пользователем в консоль строку
+	// Р§РёС‚Р°РµРј РІРІРµРґРµРЅРЅСѓСЋ РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј РІ РєРѕРЅСЃРѕР»СЊ СЃС‚СЂРѕРєСѓ
 	std::string procString = "";
 	std::cout << "Enter string:" << std::endl;
 	std::getline(std::cin, procString);
-	// Создаём объект класса parser и выводим найденные подстроки
-	// а также и количество
+	// РЎРѕР·РґР°С‘Рј РѕР±СЉРµРєС‚ РєР»Р°СЃСЃР° parser Рё РІС‹РІРѕРґРёРј РЅР°Р№РґРµРЅРЅС‹Рµ РїРѕРґСЃС‚СЂРѕРєРё
+	// Р° С‚Р°РєР¶Рµ Рё РєРѕР»РёС‡РµСЃС‚РІРѕ
 	Parser parser(procString);
 	std::cout << "Found " << parser.getRelevantSubstringsNum() << " relevant substrings" << std::endl;
 	parser.printRelevantSubsrings();
-	// Пауза после вывода
+	// РџР°СѓР·Р° РїРѕСЃР»Рµ РІС‹РІРѕРґР°
 	system("pause");
     return 0;
 }
