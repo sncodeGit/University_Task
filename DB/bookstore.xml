@@ -2,14 +2,15 @@
 <bookstore>
   <book>
     <title lang="en">Harry Potter</title>
-    <price>29.99</price>
+    <price>28.09</price>
   </book>
   <book>
     <title lang="en">Learning XML</title>
     <price>39.95</price>
   </book>
   <toy>
-    <price>23</price>
+    <price>30</price>
+    <name lang="rus">Матрёшка</name>
     <manufacturer lang="rus">
       <country>Россия</country>
       <city>Санкт-Петербург</city>
