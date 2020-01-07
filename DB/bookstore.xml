@@ -12,7 +12,10 @@
     <price>30</price>
     <name lang="rus">Матрёшка</name>
     <manufacturer lang="rus">
-      <country>Россия</country>
+      <country>
+        <countryName>Россия</countryName>
+        <capitalName>Москва</capitalName>
+      </country>
       <city>Санкт-Петербург</city>
     </manufacturer>
   </toy>
