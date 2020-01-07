@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bookstore>
+  <book>
+    <title lang="en">Harry Potter</title>
+    <price>29.99</price>
+  </book>
+  <book>
+    <title lang="en">Learning XML</title>
+    <price>39.95</price>
+  </book>
+  <toy>
+    <price>23</price>
+    <manufacturer lang="rus">
+      <country>Россия</country>
+      <city>Санкт-Петербург</city>
+    </manufacturer>
+  </toy>
+</bookstore>
