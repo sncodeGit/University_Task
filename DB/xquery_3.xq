@@ -10,4 +10,4 @@
       else $j/text()
     )
 }
-</allrustext
+</allrustext>
