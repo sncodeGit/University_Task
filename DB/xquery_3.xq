@@ -3,6 +3,7 @@
   for $i in doc("bookstore.xml")/bookstore//*
   where $i[@lang = "rus"]
   for $j in $i | $i//*
+  order by $j/text()
   return
     (
     if ($j/text() != '')
