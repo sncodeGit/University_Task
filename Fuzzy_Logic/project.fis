@@ -1,0 +1,123 @@
+[System]
+Name='project'
+Type='mamdani'
+Version=2.0
+NumInputs=6
+NumOutputs=4
+NumRules=28
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='cpu_usage'
+Range=[0 1]
+NumMFs=3
+MF1='buzy':'trapmf',[0.9 0.95 1.015 1.245]
+MF2='free':'trapmf',[0 0 0.6 0.75]
+MF3='middle':'gaussmf',[0.116162106148342 0.8]
+
+[Input2]
+Name='ram_usage'
+Range=[0 1]
+NumMFs=3
+MF1='free':'trapmf',[-0.375 -0.0417 0.454280155642023 0.6]
+MF2='middle':'gaussmf',[0.182068816899875 0.701]
+MF3='buzy':'trapmf',[0.9 0.95 1.04 1.38]
+
+[Input3]
+Name='ram_spread'
+Range=[0 1]
+NumMFs=3
+MF1='buzy':'trapmf',[-0.328 -0.0615 0.4 0.604]
+MF2='free':'trapmf',[0.445 0.6805 1.04 1.38]
+MF3='unclear':'gaussmf',[0.0921068011510794 0.553]
+
+[Input4]
+Name='disk_usage'
+Range=[0 1]
+NumMFs=3
+MF1='free':'trapmf',[-0.375 -0.04167 0.45 0.6]
+MF2='middle':'gaussmf',[0.160835771892674 0.726]
+MF3='buzy':'trapmf',[0.9 0.95 1.042 1.375]
+
+[Input5]
+Name='disk_r/w'
+Range=[0 1]
+NumMFs=3
+MF1='write':'trapmf',[-0.445 -0.112 0.35 0.55]
+MF2='both':'trapmf',[0.4 0.439 0.559338521400778 0.6]
+MF3='read':'trapmf',[0.45 0.65 1.042 1.375]
+
+[Input6]
+Name='la_value'
+Range=[0 1]
+NumMFs=4
+MF1='very_high':'trapmf',[-0.375 -0.0417 0.172 0.45]
+MF2='high':'gaussmf',[0.0755896402256338 0.339]
+MF3='low':'trapmf',[0.7 0.911 1.04 1.38]
+MF4='middle':'gaussmf',[0.110157367972765 0.619]
+
+[Output1]
+Name='cpu'
+Range=[0 1]
+NumMFs=3
+MF1='save':'trapmf',[-0.375 -0.0417 0.403696498054475 0.6]
+MF2='maybe':'gaussmf',[0.177 0.680755252918288]
+MF3='change':'trapmf',[0.8123 0.9351 0.9974 1.373]
+
+[Output2]
+Name='ram'
+Range=[0 1]
+NumMFs=3
+MF1='save':'trapmf',[-0.375 -0.0417 0.4037 0.6]
+MF2='maybe':'gaussmf',[0.177 0.6808]
+MF3='change':'trapmf',[0.8123 0.9351 0.9974 1.373]
+
+[Output3]
+Name='disk_read'
+Range=[0 1]
+NumMFs=3
+MF1='save':'trapmf',[-0.375 -0.0417 0.4037 0.6]
+MF2='maybee':'gaussmf',[0.177 0.6808]
+MF3='change':'trapmf',[0.8123 0.9351 0.9974 1.373]
+
+[Output4]
+Name='disk_write'
+Range=[0 1]
+NumMFs=3
+MF1='save':'trapmf',[-0.375 -0.0417 0.4037 0.6]
+MF2='maybe':'gaussmf',[0.177 0.6808]
+MF3='change':'trapmf',[0.8123 0.9351 0.9974 1.373]
+
+[Rules]
+1 0 0 0 0 0, 3 0 0 0 (1) : 1
+3 0 0 0 0 1, 3 0 0 0 (1) : 1
+3 0 0 0 0 2, 3 0 0 0 (0.4) : 1
+3 0 0 0 0 4, 2 0 0 0 (0.75) : 1
+3 0 0 0 0 3, 1 0 0 0 (1) : 1
+2 0 0 0 0 0, 1 0 0 0 (1) : 1
+0 3 -1 0 0 0, 0 3 0 0 (1) : 1
+0 3 1 0 0 0, 0 2 0 0 (1) : 1
+0 3 3 0 0 0, 0 3 0 0 (0.5) : 1
+0 2 -2 0 0 0, 0 1 0 0 (1) : 1
+0 2 2 0 0 1, 0 3 0 0 (1) : 1
+0 2 2 0 0 2, 0 3 0 0 (0.4) : 1
+0 2 2 0 0 4, 0 2 0 0 (0.75) : 1
+0 2 2 0 0 3, 0 1 0 0 (1) : 1
+0 1 0 0 0 0, 0 1 0 0 (1) : 1
+0 0 0 0 1 0, 0 0 1 0 (1) : 1
+0 0 0 0 3 0, 0 0 0 1 (1) : 1
+0 0 0 1 0 0, 0 0 1 1 (1) : 1
+0 0 0 3 -3 0, 0 0 0 3 (1) : 1
+0 0 0 3 -1 0, 0 0 3 0 (1) : 1
+0 0 0 2 -3 1, 0 0 0 3 (1) : 1
+0 0 0 2 -1 1, 0 0 3 0 (1) : 1
+0 0 0 2 -3 2, 0 0 0 3 (0.4) : 1
+0 0 0 2 -1 2, 0 0 3 0 (0.4) : 1
+0 0 0 2 -3 4, 0 0 0 2 (0.75) : 1
+0 0 0 2 -1 4, 0 0 2 0 (0.75) : 1
+0 0 0 2 -3 3, 0 0 0 1 (1) : 1
+0 0 0 2 -1 3, 0 0 1 0 (1) : 1
